@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "name": "escola-api",
+  "version": "1.0.0",
+  "description": "Api nodeJs ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melissaJll/escola-api.git"
+  },
+  "author": "melissa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melissaJll/escola-api/issues"
+  },
+  "homepage": "https://github.com/melissaJll/escola-api#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
