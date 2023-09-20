@@ -1,5 +1,5 @@
 import express from "express";
-import {ler} from './src/aluno.js';
+import { ler, inserir } from './src/aluno.js';
 
 const app = express();
 //const porta = 8080; já declarado antes de executas
@@ -15,10 +15,13 @@ app.use(express.urlencoded({ extended: true}));
 app.get('/', (req, res)=>{
     res.send(`Raiz da API com nodeJs + express + Mysql`);
 });
-/// Url para Pegar od dados de todo
-app.get("/alunos", (req, res) => {
-    res.send("Todos os alunos");
+
+/// Url para Pegar dados de todos os Alunos
+app.get('/alunos', (req, res) => {
+    //res.send("Todos os alunos");
+    ler(res);
 });
+
 /// Url para Pegar de um aluno
 app.get("/alunos/:id", (req,res)=> {
     res.send("Dados de apenas um aluno");

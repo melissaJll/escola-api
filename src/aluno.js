@@ -19,3 +19,18 @@ function ler (res){
         }
     });
 }
+
+//inserindo dados do aluno
+function inserir(aluno, res){
+    const sql = "INSERT INTO alunos SET ?";//sintaxe que entende pela ordem
+
+    conexao.query(sql, aluno, (erro) => { //não exibe os dados inseridos só se for erro
+        if(erro){
+            res.status(400).json(erro.code);
+        }else{
+            res.status(201).json({"status": "Aluno inserido"});
+        }
+    })
+}
+
+export {ler, inserir};
