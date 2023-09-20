@@ -13,9 +13,9 @@ function ler (res){
             return;
         }
         if (erro) {// erro não é variavel pertence ao mysql2 instalado 
-            res.status(400).json(erro.code);
+            res.status(400).json(erro.code); //400 = BAD REQUEST
         }else{
-            
+            res.status(200).json(resultados);
         }
     });
 }

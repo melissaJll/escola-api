@@ -1,6 +1,16 @@
 import express from "express";
+import {ler} from './src/aluno.js';
 
 const app = express();
+//const porta = 8080; já declarado antes de executas
+
+
+//adicionando suporte ao formato json
+app.use(express.json());
+//adicionando suporte aos dados vindos do formularios
+app.use(express.urlencoded({ extended: true}));
+
+
 
 app.get('/', (req, res)=>{
     res.send(`Raiz da API com nodeJs + express + Mysql`);
