@@ -1,5 +1,5 @@
 import express from "express";
-import { ler, inserir } from './src/aluno.js';
+import { inserir, ler } from './src/aluno.js';
 
 const app = express();
 //const porta = 8080; já declarado antes de executas
@@ -16,25 +16,30 @@ app.get('/', (req, res)=>{
     res.send(`Raiz da API com nodeJs + express + Mysql`);
 });
 
-/// Url para Pegar dados de todos os Alunos
+/// Pegar dados de todos os Alunos
 app.get('/alunos', (req, res) => {
     //res.send("Todos os alunos");
     ler(res);
 });
 
-/// Url para Pegar de um aluno
+/// Buscando de um aluno
 app.get("/alunos/:id", (req,res)=> {
     res.send("Dados de apenas um aluno");
 });
 
+// Inserindo Novo Aluno
 app.post("/alunos", (req,res)=> {
-    res.send("Inserindo +1 aluno");
+    //res.send("Inserindo +1 aluno");
+    const novoAluno = req.body;
+    inserir(novoAluno, res)
 });
 
+//Alterando
 app.patch("/alunos/:id", (req,res)=> {
     res.send("Um aluno alterado");
 });
 
+//Excluindo 
 app.delete("/alunos/:id", (req,res)=> {
     res.send("Um aluno exluido");
 });
