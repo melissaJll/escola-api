@@ -1,5 +1,5 @@
 import express from "express";
-import { inserir, ler, lerUm, atualizar } from './src/aluno.js';
+import { inserir, ler, lerUm, atualizar , excluir} from './src/aluno.js';
 
 const app = express();
 //const porta = 8080; já declarado antes de executas
@@ -46,7 +46,9 @@ app.patch("/alunos/:id", (req,res)=> {
 
 //Excluindo 
 app.delete("/alunos/:id", (req,res)=> {
-    res.send("Um aluno exluido");
+    //res.send("Um aluno exluido");
+    const id = parseInt(req.params.id);
+    excluir(id, res)
 });
  
 //Executando o servidor
