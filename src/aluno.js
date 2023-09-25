@@ -44,9 +44,26 @@ function lerUm(id, res){
         }if (erro) {
             res.status(400).json(erro.code);
         }else{
-            res.status(200).json(resultados);
+            res.status(200).json(resultados[0]);
         }
     })
 }
 
-export {ler, inserir, lerUm};
+//atualizar dados de um aluno
+function atualizar(id, aluno, res){
+    const sql = "UPDATE alunos SET ? WHERE id = ?"
+    conexao.query(sql, [aluno, id], (erro, resultados)=>{
+        if (erro) {
+            res.status(400).json(erro.code);
+        } else{
+            res.status(200).json({...aluno, id}) //spread operator
+        }
+    })
+}
+
+//excluir
+function excluir(id, res){
+    const sql = "Delete FROM alunos WHERE id = ?"
+}
+
+export {ler, inserir, lerUm, atualizar};
