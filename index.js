@@ -2,7 +2,8 @@ import express from "express";
 import { inserir, ler, lerUm, atualizar , excluir} from './src/aluno.js';
 
 const app = express();
-//const porta = 8080; já declarado antes de executas
+//const porta = 8080; já declarado antes de executar
+const porta = process.env.PORT || 3306;
 
 
 //adicionando suporte ao formato json
@@ -52,7 +53,7 @@ app.delete("/alunos/:id", (req,res)=> {
 });
  
 //Executando o servidor
-const porta = 8080;
+
 app.listen(porta, () => {
     console.log(`Servidor NodeJs rodando na porta ${porta}`);
 });
