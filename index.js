@@ -1,5 +1,5 @@
 import express from "express";
-import { inserir, ler } from './src/aluno.js';
+import { inserir, ler, lerUm } from './src/aluno.js';
 
 const app = express();
 //const porta = 8080; já declarado antes de executas
@@ -22,9 +22,11 @@ app.get('/alunos', (req, res) => {
     ler(res);
 });
 
-/// Buscando de um aluno
+/// Buscando dados de um aluno
 app.get("/alunos/:id", (req,res)=> {
-    res.send("Dados de apenas um aluno");
+    //res.send("Dados de apenas um aluno");
+    const id = parseInt(req.params.id);
+    lerUm(id, res);
 });
 
 // Inserindo Novo Aluno
