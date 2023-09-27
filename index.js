@@ -14,7 +14,8 @@ app.use(express.urlencoded({ extended: true}));
 
 
 app.get('/', (req, res)=>{
-    res.send(`Raiz da API com nodeJs + express + Mysql`);
+    //res.send(`Raiz da API com nodeJs + express + Mysql`);
+    res.redirect('https://documenter.getpostman.com/view/29885774/2s9YJZ34cf')
 });
 
 /// Pegar dados de todos os Alunos
