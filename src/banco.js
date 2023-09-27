@@ -1,5 +1,6 @@
 import mysql2 from 'mysql2';
 
+
 //dados da conexão
 // const conexao = mysql2.createConnection({
 //     host: 'localhost',

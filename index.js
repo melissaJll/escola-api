@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { inserir, ler, lerUm, atualizar , excluir} from './src/aluno.js';
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(express.json());
 //adicionando suporte aos dados vindos do formularios
 app.use(express.urlencoded({ extended: true}));
 
+app.use(cors())
 
 
 app.get('/', (req, res)=>{
